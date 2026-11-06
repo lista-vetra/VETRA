@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const type = data.get("type");
       const message = data.get("message");
       // Configura aquí el correo oficial antes de publicar.
-      const contactEmail = "";
+      const contactEmail = "lista.vetra@gmail.com";
       const status = document.getElementById("form-status");
       if (!contactEmail) {
         status.textContent = "El formulario está diseñado. Para recibir mensajes, agrega el correo oficial en script.js (variable contactEmail).";
