@@ -1,5 +1,8 @@
 // VETRA: interacciones de navegación, propuestas y formulario.
 document.addEventListener("DOMContentLoaded", () => {
+  // La sección Comunidad está retirada; elimina cualquier enlace a esa página del sitio.
+  document.querySelectorAll('a[href="comunidad.html"]').forEach(link => link.remove());
+
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".main-nav");
   if (toggle && nav) {
