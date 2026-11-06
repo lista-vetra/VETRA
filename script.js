@@ -58,10 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
       emailInput.id = "student-email";
       emailInput.name = "email";
       emailInput.type = "email";
-      emailInput.placeholder = "nombre@uss.cl";
+      emailInput.placeholder = "nombre@uss.cl o nombre@correo.uss.cl";
       emailInput.required = true;
-      emailInput.setAttribute("pattern", "[^\\s@]+@uss\\.cl");
-      emailInput.title = "Ingresa tu correo institucional terminado en @uss.cl";
+      emailInput.setAttribute("pattern", "[^\\s@]+@(uss\\.cl|correo\\.uss\\.cl)");
+      emailInput.title = "Ingresa un correo institucional terminado en @uss.cl o @correo.uss.cl";
     }
 
     form.addEventListener("submit", event => {
