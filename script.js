@@ -1,5 +1,18 @@
 // VETRA: interacciones de navegación, propuestas y formulario.
 document.addEventListener("DOMContentLoaded", () => {
+  // Amplía el logo y el encabezado para que se vea mejor en escritorio y móvil.
+  const logoStyles = document.createElement("style");
+  logoStyles.textContent = `
+    .site-header { height: 100px; }
+    .brand-logo { width: 210px; height: 88px; object-fit: contain; }
+    @media (max-width: 650px) {
+      .site-header { height: 82px; }
+      .brand-logo { width: 160px; height: 68px; }
+      .main-nav { top: 81px; }
+    }
+  `;
+  document.head.appendChild(logoStyles);
+
   // La sección Comunidad está retirada; elimina cualquier enlace a esa página del sitio.
   document.querySelectorAll('a[href="comunidad.html"]').forEach(link => link.remove());
 
