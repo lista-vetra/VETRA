@@ -47,10 +47,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const form = document.getElementById("idea-form");
   if (form) {
+    // Reemplaza el campo opcional de nombre por correo institucional obligatorio.
+    const emailInput = form.querySelector('[name="name"]');
+    if (emailInput) {
+      const label = form.querySelector('label[for="student-name"]');
+      if (label) {
+        label.htmlFor = "student-email";
+        label.textContent = "Correo personal de la universidad (USS)";
+      }
+      emailInput.id = "student-email";
+      emailInput.name = "email";
+      emailInput.type = "email";
+      emailInput.placeholder = "nombre@uss.cl";
+      emailInput.required = true;
+      emailInput.setAttribute("pattern", "[^\\s@]+@uss\\.cl");
+      emailInput.title = "Ingresa tu correo institucional terminado en @uss.cl";
+    }
+
     form.addEventListener("submit", event => {
       event.preventDefault();
       const data = new FormData(form);
-      const name = data.get("name") || "Estudiante";
+      const email = data.get("email");
       const year = data.get("year") || "No indicado";
       const type = data.get("type");
       const message = data.get("message");
@@ -62,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
       const subject = encodeURIComponent("Mensaje para VETRA: " + type);
-      const body = encodeURIComponent(`Nombre: ${name}\nAño: ${year}\nTipo: ${type}\n\n${message}`);
+      const body = encodeURIComponent(`Correo institucional: ${email}\nAño: ${year}\nTipo: ${type}\n\n${message}`);
       window.location.href = `mailto:${contactEmail}?subject=${subject}&body=${body}`;
       status.textContent = "Abriendo tu aplicación de correo…";
     });
