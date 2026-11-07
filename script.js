@@ -1,6 +1,6 @@
 // VETRA: interacciones de navegación, propuestas y formulario.
 document.addEventListener("DOMContentLoaded", () => {
-  // Reemplaza los logos de imagen por la marca tipográfica en todas las páginas.
+  // Reemplaza los logos de imagen del encabezado y pie por la marca tipográfica.
   document.querySelectorAll(".brand img").forEach(image => {
     const wordmark = document.createElement("span");
     wordmark.className = "brand-mark";
@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     image.replaceWith(wordmark);
   });
 
-  // Agrega una marca VETRA grande a la derecha del texto principal en Conócenos.
+  // Muestra el logo original en grande a la derecha del texto principal de Conócenos.
   const aboutHero = document.querySelector(".page-hero .container");
   const aboutHeading = aboutHero?.querySelector("h1");
   if (aboutHero && aboutHeading?.textContent.includes("Personas distintas")) {
@@ -16,15 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
     heroCopy.className = "about-hero-copy";
     while (aboutHero.firstChild) heroCopy.appendChild(aboutHero.firstChild);
 
-    const heroWordmark = document.createElement("div");
-    heroWordmark.className = "about-hero-wordmark";
-    heroWordmark.textContent = "VETRA";
-    heroWordmark.setAttribute("aria-label", "VETRA");
+    const heroLogo = document.createElement("img");
+    heroLogo.className = "about-hero-logo";
+    heroLogo.src = "logo-vetra.png";
+    heroLogo.alt = "Logo VETRA";
 
-    aboutHero.append(heroCopy, heroWordmark);
+    aboutHero.append(heroCopy, heroLogo);
   }
 
-  // Ajusta la marca tipográfica, el encabezado y la marca del hero.
+  // Estilos de marca, encabezado y logo del hero de Conócenos.
   const logoStyles = document.createElement("style");
   logoStyles.textContent = `
     .site-header { height: 100px; }
@@ -36,31 +36,30 @@ document.addEventListener("DOMContentLoaded", () => {
       line-height: 1;
       -webkit-text-stroke: .45px currentColor;
     }
-    .page-hero .container:has(.about-hero-wordmark) {
+    .page-hero .container:has(.about-hero-logo) {
       display: grid;
       grid-template-columns: minmax(0, 1.2fr) minmax(260px, .8fr);
       align-items: center;
       gap: 48px;
     }
     .about-hero-copy { min-width: 0; }
-    .about-hero-wordmark {
-      color: var(--ivory, #f3eedf);
-      font: 900 clamp(72px, 11vw, 150px)/.9 Manrope, sans-serif;
-      letter-spacing: .04em;
-      text-align: center;
-      text-shadow: 0 8px 0 rgba(0, 0, 0, .08);
-      -webkit-text-stroke: 1px currentColor;
+    .about-hero-logo {
+      display: block;
+      width: min(100%, 380px);
+      max-height: 340px;
+      justify-self: center;
+      object-fit: contain;
     }
     @media (max-width: 650px) {
       .site-header { height: 82px; }
       .brand img.brand-logo { width: 160px; height: 68px; }
       .brand-mark { font-size: 43px; }
       .main-nav { top: 81px; }
-      .page-hero .container:has(.about-hero-wordmark) {
+      .page-hero .container:has(.about-hero-logo) {
         grid-template-columns: 1fr;
         gap: 24px;
       }
-      .about-hero-wordmark { font-size: clamp(58px, 18vw, 90px); }
+      .about-hero-logo { width: min(72%, 280px); max-height: 240px; }
     }
   `;
   document.head.appendChild(logoStyles);
