@@ -100,8 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }));
 
-  // Reemplaza esta URL por el Instagram oficial de la lista.
-  const instagramUrl = "";
+  // URL oficial de Instagram de la lista.
+  const instagramUrl = "https://www.instagram.com/lista_vetra?dlrf=OGloZDVpYW9kMHdp";
   document.querySelectorAll("[data-instagram]").forEach(link => {
     if (instagramUrl) link.href = instagramUrl;
     else {
