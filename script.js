@@ -13,11 +13,17 @@ document.addEventListener("DOMContentLoaded", () => {
   logoStyles.textContent = `
     .site-header { height: 100px; }
     .brand img.brand-logo { width: 210px; height: 88px; object-fit: contain; }
-    .brand-mark { font-size: 34px; font-weight: 800; letter-spacing: .14em; -webkit-text-stroke: .45px currentColor; }
+    .brand-mark {
+      font-size: 51px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      line-height: 1;
+      -webkit-text-stroke: .45px currentColor;
+    }
     @media (max-width: 650px) {
       .site-header { height: 82px; }
       .brand img.brand-logo { width: 160px; height: 68px; }
-      .brand-mark { font-size: 29px; }
+      .brand-mark { font-size: 43px; }
       .main-nav { top: 81px; }
     }
   `;
