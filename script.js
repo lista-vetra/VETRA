@@ -1,7 +1,7 @@
 // VETRA: interacciones de navegación, propuestas y formulario.
 document.addEventListener("DOMContentLoaded", () => {
-  // Sustituye el logo de imagen por la marca tipográfica en todas las páginas.
-  document.querySelectorAll(".brand img.brand-logo").forEach(image => {
+  // Reemplaza los logos de imagen por la marca tipográfica en todas las páginas.
+  document.querySelectorAll(".brand img").forEach(image => {
     const wordmark = document.createElement("span");
     wordmark.className = "brand-mark";
     wordmark.textContent = "VETRA";
@@ -12,11 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoStyles = document.createElement("style");
   logoStyles.textContent = `
     .site-header { height: 100px; }
-    .brand-logo { width: 210px; height: 88px; object-fit: contain; }
+    .brand img.brand-logo { width: 210px; height: 88px; object-fit: contain; }
     .brand-mark { font-size: 34px; font-weight: 800; letter-spacing: .14em; -webkit-text-stroke: .45px currentColor; }
     @media (max-width: 650px) {
       .site-header { height: 82px; }
-      .brand-logo { width: 160px; height: 68px; }
+      .brand img.brand-logo { width: 160px; height: 68px; }
       .brand-mark { font-size: 29px; }
       .main-nav { top: 81px; }
     }
