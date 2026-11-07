@@ -1,13 +1,15 @@
 // VETRA: interacciones de navegación, propuestas y formulario.
 document.addEventListener("DOMContentLoaded", () => {
-  // Amplía el logo y el encabezado para que se vea mejor en escritorio y móvil.
+  // Ajusta la marca tipográfica y el encabezado para escritorio y móvil.
   const logoStyles = document.createElement("style");
   logoStyles.textContent = `
     .site-header { height: 100px; }
     .brand-logo { width: 210px; height: 88px; object-fit: contain; }
+    .brand-mark { font-size: 32px; font-weight: 800; letter-spacing: .14em; -webkit-text-stroke: .35px currentColor; }
     @media (max-width: 650px) {
       .site-header { height: 82px; }
       .brand-logo { width: 160px; height: 68px; }
+      .brand-mark { font-size: 27px; }
       .main-nav { top: 81px; }
     }
   `;
