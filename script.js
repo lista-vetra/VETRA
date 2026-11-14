@@ -67,8 +67,14 @@ document.addEventListener("DOMContentLoaded", () => {
   // La sección Comunidad está retirada; elimina cualquier enlace a esa página del sitio.
   document.querySelectorAll('a[href="comunidad.html"]').forEach(link => link.remove());
 
-  // Retira las fotografías del equipo sin alterar sus nombres ni descripciones.
-  document.querySelectorAll(".team-photo").forEach(photo => photo.remove());
+  // Quita únicamente el espacio reservado para la foto de campaña de la página de inicio.
+  const homeHeroArt = document.querySelector(".hero .hero-art");
+  if (homeHeroArt) {
+    homeHeroArt.remove();
+    const homeHeroStyles = document.createElement("style");
+    homeHeroStyles.textContent = ".hero-grid { grid-template-columns: 1fr; }";
+    document.head.appendChild(homeHeroStyles);
+  }
 
   // Las propuestas quedan sin etiquetas ni mecanismos de clasificación.
   document.querySelectorAll(".filters").forEach(filters => filters.remove());
