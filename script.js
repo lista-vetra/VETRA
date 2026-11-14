@@ -72,7 +72,23 @@ document.addEventListener("DOMContentLoaded", () => {
   if (homeHeroArt) {
     homeHeroArt.remove();
     const homeHeroStyles = document.createElement("style");
-    homeHeroStyles.textContent = ".hero-grid { grid-template-columns: 1fr; }";
+    homeHeroStyles.textContent = `
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-copy { width: 100%; max-width: none; }
+      .hero-copy h1 {
+        width: 100%;
+        max-width: none;
+        font-size: clamp(42px, 6vw, 78px);
+        line-height: 1.08;
+      }
+      @media (max-width: 650px) {
+        .hero-copy h1 {
+          font-size: clamp(19px, 5.8vw, 36px);
+          line-height: 1.12;
+        }
+        .hero-copy h1 br { display: none; }
+      }
+    `;
     document.head.appendChild(homeHeroStyles);
   }
 
