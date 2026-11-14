@@ -67,6 +67,9 @@ document.addEventListener("DOMContentLoaded", () => {
   // La sección Comunidad está retirada; elimina cualquier enlace a esa página del sitio.
   document.querySelectorAll('a[href="comunidad.html"]').forEach(link => link.remove());
 
+  // Retira las fotografías del equipo sin alterar sus nombres ni descripciones.
+  document.querySelectorAll(".team-photo").forEach(photo => photo.remove());
+
   // Las propuestas quedan sin etiquetas ni mecanismos de clasificación.
   document.querySelectorAll(".filters").forEach(filters => filters.remove());
   document.querySelectorAll(".proposal-card").forEach(card => {
