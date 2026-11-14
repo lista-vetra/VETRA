@@ -67,6 +67,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // La sección Comunidad está retirada; elimina cualquier enlace a esa página del sitio.
   document.querySelectorAll('a[href="comunidad.html"]').forEach(link => link.remove());
 
+  // Las propuestas quedan sin etiquetas ni mecanismos de clasificación.
+  document.querySelectorAll(".filters").forEach(filters => filters.remove());
+  document.querySelectorAll(".proposal-card").forEach(card => {
+    card.removeAttribute("data-category");
+    card.querySelectorAll(".proposal-top .tag").forEach(tag => tag.remove());
+  });
+
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".main-nav");
   if (toggle && nav) {
@@ -89,16 +96,6 @@ document.addEventListener("DOMContentLoaded", () => {
       card.classList.toggle("open", !expanded);
     });
   });
-
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const proposalCards = document.querySelectorAll(".proposal-card");
-  filterButtons.forEach(button => button.addEventListener("click", () => {
-    const filter = button.dataset.filter;
-    filterButtons.forEach(item => item.classList.toggle("active", item === button));
-    proposalCards.forEach(card => {
-      card.hidden = filter !== "all" && card.dataset.category !== filter;
-    });
-  }));
 
   // URL oficial de Instagram de la lista.
   const instagramUrl = "https://www.instagram.com/lista_vetra?dlrf=OGloZDVpYW9kMHdp";
